@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="google-site-verification" content="HCvzwUZ58RKek6va-zjZb7_4tk1tNS7zBbadrL4brQe" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AtoZ Work | Premium Service</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', 'Segoe UI', sans-serif; }
+        body {
+            background: radial-gradient(circle at center, #1a150d 0%, #0a0a0a 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 40px 20px;
+        }
+        .logo-area { display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 20px; }
+        .logo-circle {
+            width: 100px; height: 100px; border: 3px solid transparent;
+            border-top: 3px solid #d4af37; border-bottom: 3px solid #ffe082;
+            border-left: 3px solid #8a6f27; border-right: 3px solid #ffffff;
+            border-radius: 50%; display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4), inset 0 0 15px rgba(212, 175, 55, 0.2);
+            background: rgba(5, 5, 5, 0.6); animation: spinGlow 8s linear infinite; padding: 5px;
+        }
+        @keyframes spinGlow { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .logo-text-wrap { animation: antiSpin 8s linear infinite; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        @keyframes antiSpin { 0% { transform: rotate(0deg); } 100% { transform: rotate(-360deg); } }
+        .logo-icon {
+            font-size: 2.6rem; font-weight: 900;
+            background: linear-gradient(135deg, #ffffff 20%, #ffe082 50%, #d4af37 80%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            line-height: 1; margin-bottom: 2px;
+        }
+        .logo-sub-text { font-size: 0.65rem; font-weight: 800; color: #ffe082; letter-spacing: 3px; text-transform: uppercase; padding-left: 3px; }
+        .title-main {
+            font-size: 2.8rem; font-weight: 900; text-transform: uppercase;
+            background: linear-gradient(135deg, #ffe082 0%, #d4af37 50%, #8a6f27 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            line-height: 1.2; margin-bottom: 5px;
+        }
+        .features-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+            margin-bottom: 30px; border-top: 1px solid rgba(212, 175, 55, 0.3);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3); padding: 20px 0;
+            width: 100%; max-width: 450px;
+        }
+        .feature-item {
+            display: flex; flex-direction: column; align-items: center;
+            font-size: 0.65rem; color: #b3b3b3; text-transform: uppercase;
+            cursor: pointer; padding: 10px 5px; background: transparent; border: none; width: 100%; border-radius: 8px;
+        }
+        .feature-item i { font-size: 1.3rem; color: #d4af37; margin-bottom: 8px; }
+        .action-buttons { display: flex; flex-direction: column; gap: 15px; width: 100%; max-width: 450px; margin-bottom: 20px; }
+        .btn {
+            display: flex; align-items: center; justify-content: center; gap: 12px;
+            padding: 16px 25px; font-size: 1.1rem; font-weight: 700; text-decoration: none;
+            text-transform: uppercase; border-radius: 50px; cursor: pointer; width: 100%; border: none;
+        }
+        .btn-booking { background: linear-gradient(135deg, #ffe082 0%, #d4af37 100%); color: #000; }
+        .btn-whatsapp { background: #25D366; color: #fff; }
+        .btn-call { background: transparent; color: #d4af37; border: 2px solid #d4af37; }
+        .booking-form, .next-section, .massage-section {
+            width: 100%; max-width: 450px; background: rgba(15, 15, 15, 0.95);
+            border: 2px solid #d4af37; border-radius: 20px; padding: 22px;
+            display: none; margin-top: 10px;
+        }
+        .booking-form h2, .next-section h2, .massage-section h2 { color: #ffe082; margin-bottom: 15px; text-align: center; }
+        .booking-form input, .booking-form textarea {
+            width: 100%; padding: 12px 14px; margin-bottom: 12px;
+            border-radius: 12px; border: 1px solid #d4af37; background: #111; color: #fff; outline: none;
+        }
+        .booking-form textarea { min-height: 110px; resize: vertical; }
+        .next-btn, .back-btn { background: linear-gradient(135deg, #ffe082 0%, #d4af37 100%); color: #000; font-weight: 800; }
+        .footer-link { font-size: 0.9rem; color: #d4af37; text-decoration: none; letter-spacing: 2px; font-weight: 600; margin-top: 15px; }
+        .service-options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .service-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 14px;
+            border: 1px solid #d4af37;
+            border-radius: 12px;
+            background: #111;
+            color: #fff;
+            cursor: pointer;
+        }
+        .service-option input { margin: 0; }
+        .hidden { display: none !important; }
+        .btn-back-home {
+            background: transparent;
+            color: #d4af37;
+            border: 2px solid #d4af37;
+            margin-top: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="homePage">
+        <div class="logo-area">
+            <div class="logo-circle">
+                <div class="logo-text-wrap">
+                    <div class="logo-icon">K</div>
+                    <div class="logo-sub-text">ASMA</div>
+                </div>
+            </div>
+        </div>
+
+        <h1 class="title-main">AtoZ Work</h1>
+
+        <div class="features-grid">
+            <button class="feature-item"><i class="fa-solid fa-shield-halved"></i><span>Trust</span></button>
+            <button class="feature-item"><i class="fa-solid fa-award"></i><span>Quality</span></button>
+            <button class="feature-item"><i class="fa-solid fa-globe"></i><span>Global</span></button>
+            <button class="feature-item"><i class="fa-solid fa-hand-holding-dollar"></i><span>Success</span></button>
+        </div>
+
+        <div class="action-buttons">
+            <button class="btn btn-booking" id="bookingNowBtn"><i class="fa-solid fa-calendar-check"></i> Start Your Booking</button>
+            <a href="https://wa.me/918999978152" class="btn btn-whatsapp" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp Now</a>
+            <a href="tel:+918999978152" class="btn btn-call"><i class="fa-solid fa-phone"></i> Call Now</a>
+        </div>
+
+        <a href="#" class="footer-link">atozwork786899@gmail.com</a>
+    </div>
+
+    <div class="next-section" id="nextSection">
+        <h2>Next Step</h2>
+        <p style="text-align:center; color:#fff; margin-bottom: 15px;">Aapko kis kaam ke liye service chahiye?</p>
+
+        <div class="service-options">
+            <label class="service-option"><input type="radio" name="serviceType" value="Mobile Repair"> Mobile Repair</label>
+            <label class="service-option"><input type="radio" name="serviceType" value="TV Repairing"> TV Repairing</label>
+            <label class="service-option"><input type="radio" name="serviceType" value="Fridge Repairing"> Fridge Repairing</label>
+            <label class="service-option"><input type="radio" name="serviceType" value="AC Servicing & Maintenance"> AC Servicing & Maintenance</label>
+            <label class="service-option"><input type="radio" name="serviceType" value="Watch Repairing"> Watch Repairing</label>
+            <label class="service-option"><input type="radio" name="serviceType" value="Plumbing Services"> Plumbing Services</label>
+            <label class="service-option"><input type="radio" name="serviceType" value="Home Construction Contract"> Home Construction Contract</label>
+            <label class="service-option"><input type="radio" name="serviceType" value="Shoes Selling & Repairing"> Shoes Selling & Repairing</label>
+            <label class="service-option"><input type="radio" name="serviceType" value="Electric Fitting"> Electric Fitting</label>
+            <label class="service-option"><input type="radio" name="serviceType" value="Body Massage Only for Women"> Body Massage Only for Women</label>
+            <label class="service-option"><input type="radio" name="serviceType" value="Other Work"> Other Work</label>
+        </div>
+
+        <button class="btn back-btn" id="nextToBookingBtn">Next</button>
+        <button class="btn btn-back-home" id="nextBackBtn">Back</button>
+    </div>
+
+    <div class="massage-section" id="massageSection">
+        <h2>Body Massage Only for Women</h2>
+        <p style="text-align:center; color:#fff; margin-bottom: 15px;">Aap niche details fill karein aur next par booking form khulega.</p>
+
+        <div class="service-options">
+            <label class="service-option"><input type="radio" name="massageType" value="Full Body Massage"> Full Body Massage</label>
+            <label class="service-option"><input type="radio" name="massageType" value="Relaxation Massage"> Relaxation Massage</label>
+            <label class="service-option"><input type="radio" name="massageType" value="Back & Shoulder Massage"> Back & Shoulder Massage</label>
+            <label class="service-option"><input type="radio" name="massageType" value="Other"> Other</label>
+        </div>
+
+        <button class="btn next-btn" id="massageNextBtn">Next</button>
+        <button class="btn btn-back-home" id="massageBackBtn">Back</button>
+    </div>
+
+    <form class="booking-form" id="bookingForm">
+        <h2>Booking Details</h2>
+        <input type="text" id="customerName" placeholder="Your Name" required>
+        <input type="tel" id="customerNumber" placeholder="Your Number" required>
+        <input type="text" id="customerAddress" placeholder="Your Address" required>
+        <input type="text" id="serviceDetails" placeholder="Service Details" required>
+        <textarea id="customerDescription" placeholder="Description" required></textarea>
+        <button type="submit" class="btn next-btn">Submit</button>
+        <button type="button" class="btn back-btn" id="backBtn">Back</button>
+    </form>
+
+    <script>
+        const homePage = document.getElementById('homePage');
+        const bookingBtn = document.getElementById('bookingNowBtn');
+        const bookingForm = document.getElementById('bookingForm');
+        const nextSection = document.getElementById('nextSection');
+        const massageSection = document.getElementById('massageSection');
+        const nextToBookingBtn = document.getElementById('nextToBookingBtn');
+        const nextBackBtn = document.getElementById('nextBackBtn');
+        const backBtn = document.getElementById('backBtn');
+        const massageNextBtn = document.getElementById('massageNextBtn');
+        const massageBackBtn = document.getElementById('massageBackBtn');
+
+        bookingBtn.addEventListener('click', function () {
+            homePage.classList.add('hidden');
+            nextSection.style.display = 'block';
+            nextSection.scrollIntoView({ behavior: 'smooth' });
+        });
+
+        nextToBookingBtn.addEventListener('click', function () {
+            const selectedService = document.querySelector('input[name="serviceType"]:checked');
+            if (selectedService && selectedService.value === 'Body Massage Only for Women') {
+                nextSection.style.display = 'none';
+                massageSection.style.display = 'block';
+                massageSection.scrollIntoView({ behavior: 'smooth' });
+                return;
+            }
+
+            nextSection.style.display = 'none';
+            bookingForm.style.display = 'block';
+            bookingForm.scrollIntoView({ behavior: 'smooth' });
+        });
+
+        massageNextBtn.addEventListener('click', function () {
+            massageSection.style.display = 'none';
+            bookingForm.style.display = 'block';
+
+            const massageType = document.querySelector('input[name="massageType"]:checked');
+            if (massageType) {
+                document.getElementById('serviceDetails').value = `Body Massage Only for Women - ${massageType.value}`;
+            } else {
+                document.getElementById('serviceDetails').value = 'Body Massage Only for Women';
+            }
+
+            bookingForm.scrollIntoView({ behavior: 'smooth' });
+        });
+
+        nextBackBtn.addEventListener('click', function () {
+            nextSection.style.display = 'none';
+            homePage.classList.remove('hidden');
+            homePage.scrollIntoView({ behavior: 'smooth' });
+        });
+
+        massageBackBtn.addEventListener('click', function () {
+            massageSection.style.display = 'none';
+            nextSection.style.display = 'block';
+            nextSection.scrollIntoView({ behavior: 'smooth' });
+        });
+
+        bookingForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById('customerName').value.trim();
+            const number = document.getElementById('customerNumber').value.trim();
+            const address = document.getElementById('customerAddress').value.trim();
+            const service = document.getElementById('serviceDetails').value.trim();
+            const description = document.getElementById('customerDescription').value.trim();
+
+            const message = `New Booking Details:%0AName: ${name}%0ANumber: ${number}%0AAddress: ${address}%0AService Details: ${service}%0ADescription: ${description}`;
+            window.open(`https://wa.me/918999978152?text=${message}`, '_blank');
+        });
+
+        backBtn.addEventListener('click', function () {
+            bookingForm.style.display = 'none';
+            const selectedService = document.querySelector('input[name="serviceType"]:checked');
+            if (selectedService && selectedService.value === 'Body Massage Only for Women') {
+                massageSection.style.display = 'block';
+                massageSection.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                nextSection.style.display = 'block';
+                nextSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    </script>
+</body>
+</html>
